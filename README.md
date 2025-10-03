@@ -3,7 +3,7 @@
 
 Customer Segmentation, CLTV Prediction, and Churn Analysis using Machine Learning & Power BI
 
-## * Problem Statement
+##  Problem Statement
 
 In today’s competitive telecom and internet service industry, retaining customers and maximizing their lifetime value (CLTV) is crucial. The company faced challenges in:
 
@@ -17,7 +17,7 @@ Segmenting customers for action-oriented strategies (retention, upselling) and b
 
 Without clear insights, marketing and retention strategies were reactive rather than proactive.
 
-## * Objectives
+##  Objectives
 
 Predict Customer Lifetime Value (CLTV) with high accuracy.
 
@@ -27,7 +27,7 @@ Analyze churn drivers to design effective retention campaigns.
 
 Build an interactive Customer 360° dashboard in Power BI for decision-makers.
 
-## * Data Collection & Preparation
+##  Data Collection & Preparation
 
 Data Sources: Customer demographics, contracts, services, usage behavior, satisfaction scores, and activity history.
 
@@ -37,7 +37,7 @@ Feature Engineering: Created CLTV ranges, satisfaction groups, churn labels, and
 
 Schema Design: Structured into fact and dimension tables (fact_customer_activity, dim_customer_behavior, dim_customer_contracts, dim_customer_demographics, etc.).
 
-##🔹 Methodology
+## Methodology
 1. Model Development
 
 Built a CLTV prediction model using regression algorithms.
@@ -68,7 +68,7 @@ Churn Analysis (key influencers, heatmaps, decomposition tree).
 
 CLTV Analysis (customer value distribution, revenue insights).
 
-##🔹 Key Findings & Business Insights
+## Key Findings & Business Insights
 
 High CLTV Customers with High Satisfaction → Best candidates for upselling premium services (Delight & Grow).
 
@@ -88,7 +88,7 @@ Fiber optic users had higher CLTV but also higher refund requests.
 
 Gender distribution was almost equal, but women showed slightly higher satisfaction.
 
-##🔹 Business Impact
+## Business Impact
 
 Enabled data-driven segmentation for marketing campaigns.
 
@@ -98,11 +98,11 @@ Unlocked opportunities for cross-sell and upsell with Delight & Grow segment.
 
 Delivered a single Customer 360° dashboard integrating predictive analytics and business intelligence.
 
-##🔹 Conclusion
+## Conclusion
 
 The project successfully combined machine learning (CLTV prediction) with business intelligence (Power BI dashboards) to provide a holistic view of customer value and churn. The integration of AI-powered visuals further enhanced the ability of managers to explore and act on insights.
 
-##🔹 Future Scope
+## Future Scope
 
 Deploy real-time dashboards integrated with CRM systems.
 
