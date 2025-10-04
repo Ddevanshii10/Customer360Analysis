@@ -7,6 +7,7 @@ Telecom companies face challenges in understanding their customers holistically.
 This project integrates multiple customer data sources to create a unified Customer 360 dataset. Advanced analytics and visualizations are developed to predict churn, segment customers, evaluate CLTV, and analyze satisfaction, supporting data-driven decision making.
 
 ## Tools
+- **Databricks**: Performed EDA, Star Schema using SQL, feature engineering, and machine learning in databricks community edition.
 - **Python & PySpark**: For ETL, data wrangling, feature engineering, and machine learning.
 - **Power BI**: For business intelligence dashboards and interactive visualizations.
 - **SQL**: For data extraction, transformation, and aggregation.
