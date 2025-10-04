@@ -1,113 +1,39 @@
 # Customer360Analysis
 
+## Problem
+Telecom companies face challenges in understanding their customers holistically. Customer data is siloed across contracts, services, demographics, behavior, and feedback. This fragmentation makes it difficult to predict churn, maximize customer lifetime value (CLTV), and improve satisfaction.
 
-Customer Segmentation, CLTV Prediction, and Churn Analysis using Machine Learning & Power BI
+## Action
+This project integrates multiple customer data sources to create a unified Customer 360 dataset. Advanced analytics and visualizations are developed to predict churn, segment customers, evaluate CLTV, and analyze satisfaction, supporting data-driven decision making.
 
-##  Problem Statement
+## Tools
+- **Python & PySpark**: For ETL, data wrangling, feature engineering, and machine learning.
+- **Power BI**: For business intelligence dashboards and interactive visualizations.
+- **SQL**: For data extraction, transformation, and aggregation.
+- **GitHub**: For version control and collaborative development.
 
-In today’s competitive telecom and internet service industry, retaining customers and maximizing their lifetime value (CLTV) is crucial. The company faced challenges in:
+## Approach
+1. **Data Integration**: Consolidate data from contracts, services, demographics, behavior, and feedback tables.
+2. **Feature Engineering**: Create derived features, such as tenure buckets, service counts, satisfaction scores, and financial indicators.
+3. **Modeling & Analysis**:
+   - Build churn prediction and CLTV regression models using PySpark.
+   - Segment customers based on demographics, service usage, and satisfaction.
+4. **Visualization & Reporting**: Develop Power BI dashboards for churn, CLTV, segmentation, and satisfaction analysis.
+5. **Iterative Improvement**: Refine models and dashboards based on business feedback, and validate results using key performance metrics.
 
-Identifying high-value customers.
+## Result and Outcome
+- **Unified Customer 360 Dataset**: Enables comprehensive customer profiling and analytics.
+- **Churn Prediction Model**: Identifies at-risk customers, allowing for targeted retention strategies.
+- **CLTV Insights**: Reveals high-value customers and informs upsell/cross-sell campaigns.
+- **Segmentation & Satisfaction Analysis**: Supports tailored marketing and service improvement.
+- **Business Impact**: Improved retention, optimized marketing spend, and enhanced customer experience.
 
-Understanding customer behavior patterns.
+## Output/Result
+- **Power BI Dashboard**: Interactive views for churn, CLTV, segmentation, satisfaction, and actionable business insights.
+- **Model Performance**: 79% Churn prediction accuracy, CLTV regression metrics 82% R2 score, and segmentation results.
+- **Data Artifacts**: Cleaned and integrated datasets, engineered features, and model outputs available in the repository.
+- **Documentation**: Detailed data schema, process flows, and user guides included for ease of use and reproducibility.
 
-Predicting churn risk.
+---
 
-Segmenting customers for action-oriented strategies (retention, upselling) and behavioral analysis (demographics, service usage).
-
-Without clear insights, marketing and retention strategies were reactive rather than proactive.
-
-##  Objectives
-
-Predict Customer Lifetime Value (CLTV) with high accuracy.
-
-Segment customers into meaningful groups based on action-oriented and behavioral perspectives.
-
-Analyze churn drivers to design effective retention campaigns.
-
-Build an interactive Customer 360° dashboard in Power BI for decision-makers.
-
-##  Data Collection & Preparation
-
-Data Sources: Customer demographics, contracts, services, usage behavior, satisfaction scores, and activity history.
-
-Data Cleaning: Handled missing values, duplicates, and outliers.
-
-Feature Engineering: Created CLTV ranges, satisfaction groups, churn labels, and referral insights.
-
-Schema Design: Structured into fact and dimension tables (fact_customer_activity, dim_customer_behavior, dim_customer_contracts, dim_customer_demographics, etc.).
-
-## Methodology
-1. Model Development
-
-Built a CLTV prediction model using regression algorithms.
-
-Achieved R² score of 82%, ensuring robust predictive accuracy.
-
-2. Customer Segmentation
-
-Action-Oriented Segmentation: Combined CLTV and satisfaction score to create categories such as Delight & Grow, Retention Needed, Nurture, Low Value.
-
-Behavioral Segmentation: Grouped customers by demographics (age, gender, city), usage behavior (streaming, downloads, referrals), and service adoption.
-
-3. Churn Analysis
-
-Applied AI-powered visuals in Power BI (Key Influencers, Decomposition Tree) to identify churn drivers.
-
-Found that tenure, internet type, contract duration, and satisfaction score were the most important churn factors.
-
-4. Visualization (Power BI Customer 360 Dashboard)
-
-Created multiple interactive pages:
-
-Action-Oriented Customer Segmentation (focus on profitability and retention strategies).
-
-Behavioral Segmentation (focus on demographics, city distribution, gender, and service adoption).
-
-Churn Analysis (key influencers, heatmaps, decomposition tree).
-
-CLTV Analysis (customer value distribution, revenue insights).
-
-## Key Findings & Business Insights
-
-High CLTV Customers with High Satisfaction → Best candidates for upselling premium services (Delight & Grow).
-
-High CLTV but Low Satisfaction → Require retention efforts like loyalty programs or proactive support (Retention Needed).
-
-Low CLTV with High Satisfaction → Can be nurtured to grow their value (Nurture).
-
-Low CLTV & Low Satisfaction → Low-value customers, less priority for investments.
-
-Churn Drivers: DSL customers, month-to-month contracts, and customers with tenure <12 months showed higher churn risk.
-
-Behavioral Insights:
-
-Majority of customers aged 30–50.
-
-Fiber optic users had higher CLTV but also higher refund requests.
-
-Gender distribution was almost equal, but women showed slightly higher satisfaction.
-
-## Business Impact
-
-Enabled data-driven segmentation for marketing campaigns.
-
-Identified retention-needed customers to reduce churn.
-
-Unlocked opportunities for cross-sell and upsell with Delight & Grow segment.
-
-Delivered a single Customer 360° dashboard integrating predictive analytics and business intelligence.
-
-## Conclusion
-
-The project successfully combined machine learning (CLTV prediction) with business intelligence (Power BI dashboards) to provide a holistic view of customer value and churn. The integration of AI-powered visuals further enhanced the ability of managers to explore and act on insights.
-
-## Future Scope
-
-Deploy real-time dashboards integrated with CRM systems.
-
-Extend churn prediction into a classification ML model with live scoring.
-
-Incorporate social media sentiment analysis for better satisfaction tracking.
-
-Automate personalized campaign recommendations for each customer segment.
+_For details on schema, ETL scripts, modeling notebooks, and Power BI reports, see the respective folders and documentation in this repository._
