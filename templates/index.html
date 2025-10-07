@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer 360 Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-chart-pie"></i>
+                <span>Customer 360</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Customer 360 Analysis Platform</h1>
+            <p>Unlock the full potential of your customer data with advanced analytics, predictive modeling, and actionable insights.</p>
+            <div class="hero-buttons">
+                <a href="/dashboard" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="chart-preview">
+                <i class="fas fa-chart-line"></i>
+                <div class="floating-elements">
+                    <div class="element element-1">📊</div>
+                    <div class="element element-2">📈</div>
+                    <div class="element element-3">🎯</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Customer Analytics Features</h2>
+                <p>Transform your customer data into actionable insights</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-slash"></i>
+                    </div>
+                    <h3>Churn Prediction</h3>
+                    <p>Identify customers at risk of churning using advanced machine learning algorithms and take proactive retention actions.</p>
+                    <div class="feature-stats">
+                        <span class="stat">95% Accuracy</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>CLTV Prediction</h3>
+                    <p>Calculate Customer Lifetime Value to prioritize high-value customers and optimize marketing spend effectively.</p>
+                    <div class="feature-stats">
+                        <span class="stat">ROI +240%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Customer Segmentation</h3>
+                    <p>Automatically segment customers based on behavior patterns to deliver personalized experiences and targeted campaigns.</p>
+                    <div class="feature-stats">
+                        <span class="stat">5 Segments</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Dynamic, interactive dashboard with real-time insights and visualizations to track key customer metrics.</p>
+                    <div class="feature-stats">
+                        <span class="stat">Real-time</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Feedback Analysis</h3>
+                    <p>Analyze customer feedback and sentiment to understand satisfaction levels and improve service quality.</p>
+                    <div class="feature-stats">
+                        <span class="stat">AI-Powered</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Get actionable recommendations powered by machine learning to drive customer engagement and retention.</p>
+                    <div class="feature-stats">
+                        <span class="stat">Smart AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Customers Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Prediction Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">240%</div>
+                    <div class="stat-label">ROI Improvement</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Real-time Monitoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Customer Analytics?</h2>
+                <p>Start making data-driven decisions today with our comprehensive Customer 360 platform.</p>
+                <a href="/dashboard" class="btn btn-primary btn-large">Launch Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-chart-pie"></i> Customer 360 Analysis</h4>
+                    <p>Empowering businesses with intelligent customer insights through advanced analytics and machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#features">Churn Prediction</a></li>
+                        <li><a href="#features">CLTV Analysis</a></li>
+                        <li><a href="#features">Customer Segmentation</a></li>
+                        <li><a href="#features">Feedback Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Customer 360 Analysis. Built with ❤️ for better customer understanding.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

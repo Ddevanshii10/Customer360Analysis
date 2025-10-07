@@ -1,0 +1,14 @@
+flask
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+plotly
+sqlalchemy
+gunicorn
+# Optional if you use Spark locally or via Databricks
+pyspark
+# For dashboard embedding
+requests
+joblib

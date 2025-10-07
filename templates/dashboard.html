@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Customer 360 Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-chart-pie"></i> Customer 360
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard">
+        <div class="dashboard-sidebar">
+            <h3>Analysis Tools</h3>
+            <div class="sidebar-menu">
+                <button class="sidebar-btn active" data-section="overview">
+                    <i class="fas fa-tachometer-alt"></i> Overview
+                </button>
+                <button class="sidebar-btn" data-section="churn">
+                    <i class="fas fa-user-slash"></i> Churn Prediction
+                </button>
+                <button class="sidebar-btn" data-section="cltv">
+                    <i class="fas fa-dollar-sign"></i> CLTV Analysis
+                </button>
+                <button class="sidebar-btn" data-section="segmentation">
+                    <i class="fas fa-layer-group"></i> Segmentation
+                </button>
+                <button class="sidebar-btn" data-section="feedback">
+                    <i class="fas fa-comments"></i> Feedback
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-main">
+            
+            <!-- ================= OVERVIEW SECTION ================= -->
+            <div id="overview" class="dashboard-section active">
+                <h2>📊 Customer 360 Analytics Dashboard</h2>
+
+                <!-- KPI Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-content">
+                            <h3>Total Customers</h3>
+                            <p class="metric-value">4,225</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-content">
+                            <h3>Avg CLTV</h3>
+                            <p class="metric-value">$4.41K</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="metric-content">
+                            <h3>Churn Rate</h3>
+                            <p class="metric-value">16%</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-star"></i></div>
+                        <div class="metric-content">
+                            <h3>Satisfaction</h3>
+                            <p class="metric-value">3.24 / 5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power BI Report -->
+                <div class="pdf-container" style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 10px;">📄 Here is the Power BI Report</h3>
+                    <iframe 
+                        src="{{ url_for('static', filename='reports/Customer360Analysis.pdf') }}" 
+                        width="100%" height="700px" frameborder="0">
+                    </iframe>
+                </div>
+
+                <!-- Insights and Recommendations -->
+                <div class="insight-section" style="margin-top: 50px;">
+                    <h2>💡 Business Insights and Recommendations</h2>
+                    <p style="font-size: 1rem; margin-bottom: 20px;">
+                        Below are the key insights and recommendations derived from the Power BI dashboard analysis.
+                    </p>
+
+                    <h3>📊 Customer Metrics</h3>
+                    <ul>
+                        <li>Total Customers analyzed: ~4,225</li>
+                        <li>Average Tenure: ~33 months</li>
+                        <li>Average Satisfaction Score: 3.24 / 5</li>
+                        <li>Customer Lifetime Value (CLTV): Avg ~4,409–4,531 | Medium 3000–5999 | High >6,000</li>
+                    </ul>
+
+                    <h3>💰 Revenue</h3>
+                    <ul>
+                        <li>Sum of total revenue: approx. ₹1.295 crore (12.95M)</li>
+                        <li>Highest revenue from Fiber Optic users and High CLTV customers</li>
+                    </ul>
+
+                    <h3>🚨 Churn Behavior</h3>
+                    <ul>
+                        <li>Overall churn rate: 16%</li>
+                        <li>Highest churn: Month-to-Month (30%) & early-tenure (0–12 months: 30%)</li>
+                        <li>Top churn reasons: Competitor offers, pricing, support issues, network reliability</li>
+                    </ul>
+
+                    <h3>🧩 Customer Segments</h3>
+                    <ul>
+                        <li>Fiber Optic & High CLTV users → High satisfaction, low churn</li>
+                        <li>Low/Medium CLTV → Short tenure, higher churn</li>
+                        <li>Young users (<30) more prone to churn</li>
+                    </ul>
+
+                    <h3>📶 Usage & Behavior</h3>
+                    <ul>
+                        <li>High data usage in Fiber Optic segments</li>
+                        <li>Different patterns between senior citizens & youth</li>
+                        <li>Majority payments via credit cards, strong referral & paperless billing trends</li>
+                    </ul>
+
+                    <h3>🧭 Solutions & Recommendations</h3>
+                    <ol>
+                        <li><b>Reduce Churn Rates</b> — Onboard new customers early, loyalty incentives, proactive support.</li>
+                        <li><b>Compete on Pricing</b> — Offer affordable base plans, transparent pricing, competitive bundles.</li>
+                        <li><b>Enhance Service Quality</b> — Improve web self-service, train support teams.</li>
+                        <li><b>Targeted Upselling</b> — Use behavioral insights to cross-sell premium plans.</li>
+                        <li><b>Boost Digital Adoption</b> — Incentivize referrals, promote paperless billing.</li>
+                        <li><b>Network Reliability</b> — Prioritize maintenance in churn-heavy zones, expand Fiber Optic.</li>
+                        <li><b>Predictive Analytics</b> — Deploy churn alerts, continuously monitor KPIs.</li>
+                    </ol>
+
+                    <h3>📋 Summary Table</h3>
+                    <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse; text-align:left;">
+                        <thead style="background:#f4f4f4;">
+                            <tr>
+                                <th>Issue / Insight</th>
+                                <th>Solution / Recommendation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>High churn (month-to-month, new users)</td>
+                                <td>Retention programs, onboarding, contract upgrade offers</td>
+                            </tr>
+                            <tr>
+                                <td>Competitor & Price-based churn</td>
+                                <td>Competitive pricing, feature benchmarking, transparent charges</td>
+                            </tr>
+                            <tr>
+                                <td>Low satisfaction (support/service)</td>
+                                <td>Support training, improved web self-service</td>
+                            </tr>
+                            <tr>
+                                <td>Low adoption (digital, referrals)</td>
+                                <td>Paperless billing incentives, referral rewards</td>
+                            </tr>
+                            <tr>
+                                <td>Network / reliability complaints</td>
+                                <td>Upgrade/maintenance in affected areas, expand fiber optic</td>
+                            </tr>
+                            <tr>
+                                <td>Underutilized segments (low/medium CLTV)</td>
+                                <td>Targeted marketing, personalized upselling offers</td>
+                            </tr>
+                            <tr>
+                                <td>Lack of predictive action on churn</td>
+                                <td>Use analytics to retain high-risk customers proactively</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!-- ✅ Closed overview -->
+
+            <!-- ================= OTHER SECTIONS ================= -->
+            <div id="churn" class="dashboard-section">
+                <h2>🎯 Churn Prediction</h2>
+                <p>Enter customer details to predict churn probability using our ML model.</p>
+                
+                <div class="prediction-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tenure">Customer Tenure (months):</label>
+                            <input type="number" id="tenure" name="tenure" min="0" max="100" placeholder="e.g., 12" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly_charges">Monthly Charges ($):</label>
+                            <input type="number" id="monthly_charges" name="monthly_charges" min="0" step="0.01" placeholder="e.g., 65.50" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_charges">Total Charges ($):</label>
+                            <input type="number" id="total_charges" name="total_charges" min="0" step="0.01" placeholder="e.g., 2500.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contract_type">Contract Type:</label>
+                            <select id="contract_type" name="contract_type" required>
+                                <option value="">Select contract type</option>
+                                <option value="Month-to-month">Month-to-month</option>
+                                <option value="One year">One year</option>
+                                <option value="Two year">Two year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" onclick="predictChurn()">Predict Churn</button>
+                    <div id="churn-result" class="prediction-result" style="display:none;">
+                        <h3>Prediction Result:</h3>
+                        <div id="churn-prediction-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cltv" class="dashboard-section">
+                <h2>💰 CLTV Analysis</h2>
+                <p>Calculate customer lifetime value using predictive analytics.</p>
+                
+                <div class="prediction-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cltv_tenure">Customer Tenure (months):</label>
+                            <input type="number" id="cltv_tenure" name="tenure" min="0" max="100" placeholder="e.g., 24" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cltv_monthly_charges">Monthly Charges ($):</label>
+                            <input type="number" id="cltv_monthly_charges" name="monthly_charges" min="0" step="0.01" placeholder="e.g., 85.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cltv_total_charges">Total Charges ($):</label>
+                            <input type="number" id="cltv_total_charges" name="total_charges" min="0" step="0.01" placeholder="e.g., 3500.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service_type">Service Type:</label>
+                            <select id="service_type" name="service_type" required>
+                                <option value="">Select service type</option>
+                                <option value="Basic">Basic</option>
+                                <option value="Standard">Standard</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" onclick="predictCLTV()">Calculate CLTV</button>
+                    <div id="cltv-result" class="prediction-result" style="display:none;">
+                        <h3>CLTV Analysis:</h3>
+                        <div id="cltv-prediction-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="segmentation" class="dashboard-section">
+                <h2>🧩 Customer Segmentation</h2>
+                <p>Discover customer segments using advanced clustering algorithms.</p>
+                
+                <div class="prediction-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="seg_age">Customer Age:</label>
+                            <input type="number" id="seg_age" name="age" min="18" max="100" placeholder="e.g., 35" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seg_income">Annual Income ($):</label>
+                            <input type="number" id="seg_income" name="income" min="0" step="100" placeholder="e.g., 50000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seg_spending">Monthly Spending ($):</label>
+                            <input type="number" id="seg_spending" name="spending" min="0" step="0.01" placeholder="e.g., 150.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seg_frequency">Usage Frequency:</label>
+                            <select id="seg_frequency" name="frequency" required>
+                                <option value="">Select frequency</option>
+                                <option value="Low">Low (1-5 times/month)</option>
+                                <option value="Medium">Medium (6-15 times/month)</option>
+                                <option value="High">High (16+ times/month)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" onclick="segmentCustomer()">Identify Segment</button>
+                    <div id="segmentation-result" class="prediction-result" style="display:none;">
+                        <h3>Customer Segment:</h3>
+                        <div id="segmentation-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="feedback" class="dashboard-section">
+                <h2>💬 Feedback Analysis</h2>
+                <p>Analyze customer sentiment and satisfaction patterns.</p>
+                
+                <div class="prediction-form">
+                    <div class="form-group">
+                        <label for="feedback_text">Customer Feedback:</label>
+                        <textarea id="feedback_text" name="feedback" rows="4" placeholder="Enter customer feedback text..." required></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="rating">Overall Rating:</label>
+                            <select id="rating" name="rating" required>
+                                <option value="">Select rating</option>
+                                <option value="1">1 - Very Poor</option>
+                                <option value="2">2 - Poor</option>
+                                <option value="3">3 - Average</option>
+                                <option value="4">4 - Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Feedback Category:</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select category</option>
+                                <option value="Service">Service Quality</option>
+                                <option value="Product">Product Features</option>
+                                <option value="Support">Customer Support</option>
+                                <option value="Billing">Billing & Pricing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" onclick="analyzeFeedback()">Analyze Feedback</button>
+                    <div id="feedback-result" class="prediction-result" style="display:none;">
+                        <h3>Sentiment Analysis:</h3>
+                        <div id="feedback-content"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End dashboard-main -->
+    </div> <!-- End dashboard -->
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+    
+    <script>
+    // Prediction Functions
+    function predictChurn() {
+        const tenure = document.getElementById('tenure').value;
+        const monthlyCharges = document.getElementById('monthly_charges').value;
+        const totalCharges = document.getElementById('total_charges').value;
+        const contractType = document.getElementById('contract_type').value;
+
+        if (!tenure || !monthlyCharges || !totalCharges || !contractType) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const data = {
+            tenure: parseFloat(tenure),
+            monthly_charges: parseFloat(monthlyCharges),
+            total_charges: parseFloat(totalCharges),
+            contract_type: contractType
+        };
+
+        fetch('/predict_churn', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            const resultDiv = document.getElementById('churn-result');
+            const contentDiv = document.getElementById('churn-prediction-content');
+            
+            if (result.error) {
+                contentDiv.innerHTML = `<p style="color: red;">Error: ${result.error}</p>`;
+            } else {
+                const riskLevel = result.prediction === 1 ? 'High' : 'Low';
+                const riskColor = result.prediction === 1 ? '#e53e3e' : '#38a169';
+                const probability = (result.probability * 100).toFixed(1);
+                
+                contentDiv.innerHTML = `
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div style="background: ${riskColor}; color: white; padding: 10px 20px; border-radius: 8px;">
+                            <strong>Risk Level: ${riskLevel}</strong>
+                        </div>
+                        <div>
+                            <p><strong>Churn Probability:</strong> ${probability}%</p>
+                            <p><strong>Recommendation:</strong> ${riskLevel === 'High' ? 'Immediate retention action needed' : 'Customer likely to stay'}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            resultDiv.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Prediction failed. Please try again.');
+        });
+    }
+
+    function predictCLTV() {
+        const tenure = document.getElementById('cltv_tenure').value;
+        const monthlyCharges = document.getElementById('cltv_monthly_charges').value;
+        const totalCharges = document.getElementById('cltv_total_charges').value;
+        const serviceType = document.getElementById('service_type').value;
+
+        if (!tenure || !monthlyCharges || !totalCharges || !serviceType) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const data = {
+            tenure: parseFloat(tenure),
+            monthly_charges: parseFloat(monthlyCharges),
+            total_charges: parseFloat(totalCharges),
+            service_type: serviceType
+        };
+
+        fetch('/predict_cltv', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            const resultDiv = document.getElementById('cltv-result');
+            const contentDiv = document.getElementById('cltv-prediction-content');
+            
+            if (result.error) {
+                contentDiv.innerHTML = `<p style="color: red;">Error: ${result.error}</p>`;
+            } else {
+                const cltv = result.cltv.toFixed(2);
+                const category = result.cltv > 5000 ? 'High Value' : result.cltv > 2000 ? 'Medium Value' : 'Low Value';
+                const categoryColor = result.cltv > 5000 ? '#38a169' : result.cltv > 2000 ? '#d69e2e' : '#e53e3e';
+                
+                contentDiv.innerHTML = `
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div style="background: ${categoryColor}; color: white; padding: 10px 20px; border-radius: 8px;">
+                            <strong>${category} Customer</strong>
+                        </div>
+                        <div>
+                            <p><strong>Predicted CLTV:</strong> $${cltv}</p>
+                            <p><strong>Strategy:</strong> ${category === 'High Value' ? 'VIP treatment & premium offers' : category === 'Medium Value' ? 'Upselling opportunities' : 'Basic retention efforts'}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            resultDiv.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('CLTV prediction failed. Please try again.');
+        });
+    }
+
+    function segmentCustomer() {
+        const age = document.getElementById('seg_age').value;
+        const income = document.getElementById('seg_income').value;
+        const spending = document.getElementById('seg_spending').value;
+        const frequency = document.getElementById('seg_frequency').value;
+
+        if (!age || !income || !spending || !frequency) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const segments = [
+            { name: 'Premium Users', description: 'High value customers with frequent usage', color: '#9f7aea' },
+            { name: 'Regular Users', description: 'Steady customers with moderate usage', color: '#4299e1' },
+            { name: 'Budget Users', description: 'Price-conscious customers', color: '#38a169' },
+            { name: 'Occasional Users', description: 'Low frequency users', color: '#ed8936' }
+        ];
+
+        // Simple segmentation logic
+        let segmentIndex = 0;
+        if (income > 70000 && frequency === 'High') segmentIndex = 0;
+        else if (income > 40000 && frequency === 'Medium') segmentIndex = 1;
+        else if (income < 40000) segmentIndex = 2;
+        else segmentIndex = 3;
+
+        const segment = segments[segmentIndex];
+        
+        const resultDiv = document.getElementById('segmentation-result');
+        const contentDiv = document.getElementById('segmentation-content');
+        
+        contentDiv.innerHTML = `
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div style="background: ${segment.color}; color: white; padding: 10px 20px; border-radius: 8px;">
+                    <strong>${segment.name}</strong>
+                </div>
+                <div>
+                    <p><strong>Segment:</strong> ${segment.name}</p>
+                    <p><strong>Description:</strong> ${segment.description}</p>
+                    <p><strong>Marketing Strategy:</strong> Tailored campaigns for this segment</p>
+                </div>
+            </div>
+        `;
+        resultDiv.style.display = 'block';
+    }
+
+    function analyzeFeedback() {
+        const feedbackText = document.getElementById('feedback_text').value;
+        const rating = document.getElementById('rating').value;
+        const category = document.getElementById('category').value;
+
+        if (!feedbackText || !rating || !category) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Simple sentiment analysis based on rating and keywords
+        const positiveWords = ['good', 'great', 'excellent', 'amazing', 'love', 'perfect', 'satisfied'];
+        const negativeWords = ['bad', 'terrible', 'awful', 'hate', 'worst', 'disappointed', 'frustrated'];
+        
+        const text = feedbackText.toLowerCase();
+        const positiveCount = positiveWords.filter(word => text.includes(word)).length;
+        const negativeCount = negativeWords.filter(word => text.includes(word)).length;
+        
+        let sentiment = 'Neutral';
+        let sentimentColor = '#d69e2e';
+        
+        if (rating >= 4 || positiveCount > negativeCount) {
+            sentiment = 'Positive';
+            sentimentColor = '#38a169';
+        } else if (rating <= 2 || negativeCount > positiveCount) {
+            sentiment = 'Negative';
+            sentimentColor = '#e53e3e';
+        }
+
+        const resultDiv = document.getElementById('feedback-result');
+        const contentDiv = document.getElementById('feedback-content');
+        
+        contentDiv.innerHTML = `
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div style="background: ${sentimentColor}; color: white; padding: 10px 20px; border-radius: 8px;">
+                    <strong>${sentiment} Sentiment</strong>
+                </div>
+                <div>
+                    <p><strong>Rating:</strong> ${rating}/5 stars</p>
+                    <p><strong>Category:</strong> ${category}</p>
+                    <p><strong>Action Required:</strong> ${sentiment === 'Negative' ? 'Follow up with customer service' : sentiment === 'Positive' ? 'Share success story' : 'Monitor for improvements'}</p>
+                </div>
+            </div>
+        `;
+        resultDiv.style.display = 'block';
+    }
+    </script>
+</body>
+</html>
